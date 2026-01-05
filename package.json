@@ -1,0 +1,7 @@
+{
+  "name": "dummy-for-jianmu",
+  "version": "1.0.0",
+  "description": "Dummy package.json to bypass nodejs_build npm install",
+  "scripts": {},
+  "private": true
+}
