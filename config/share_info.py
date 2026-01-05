@@ -1,6 +1,5 @@
 from faker import Faker
 from datetime import date
-import random
 
 
 # 断言
@@ -11,9 +10,10 @@ code = 0
 #生成随机信息。姓名、手机号等
 f = Faker(locale='zh_CN')
 phone = f.phone_number()
-new_agent_phone = f.phone_number()
-name ="test"+f.name()
+name = "test" + f.name()
 number = f.random_number(5)
+project_no = f.bothify(text="PJ########")
+
 
 #获取日期
 today_date = date.today()

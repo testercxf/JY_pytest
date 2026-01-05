@@ -1,3 +1,5 @@
+import json
+import copy
 import pytest
 import allure
 from common.send_request import *
@@ -16,9 +18,9 @@ def test_admin_data():
         "date": str(date.today()),
         "name": name,
         "number": str(number),
-        "deptid": deptId
+        "deptid": deptId,
+        "project_no": project_no
         # 接口响应数据共享
-
         
         
     }
@@ -27,7 +29,7 @@ class Testadmin:
 
     @allure.story("社区直饮水部门列表")
     @pytest.mark.parametrize("args",Getyaml().read_yaml_file("admin_data.yaml","get_straight_project_dept_operations_tree"))
-    def test_001(self,args,test_admin_data):
+    def test_get_straight_project_dept_operations_tree(self,args,test_admin_data):
         method = args["request"]["method"]
         url = test_admin_data["host"]+args["request"]["url"]
         data = args["request"]["data"]
@@ -35,7 +37,7 @@ class Testadmin:
     
     @allure.story("社区直饮水项目列表")
     @pytest.mark.parametrize("args",Getyaml().read_yaml_file("admin_data.yaml","get_straight_project_page"))
-    def test_002(self,args,test_admin_data):
+    def test_get_straight_project_page(self,args,test_admin_data):
         method = args["request"]["method"]
         url = (
             test_admin_data["host"]
@@ -43,4 +45,18 @@ class Testadmin:
             + "deptId={}&current=1&size=10&descs=&ascs=".format(test_admin_data["deptid"])
         )
         data = args["request"]["data"]
+        SendRequest.send_requests(method, url,data, headers={"Authorization": test_admin_data["Token"]})
+    
+    @allure.story("创建社区直饮水项目")
+    @pytest.mark.parametrize("args",Getyaml().read_yaml_file("admin_data.yaml","create_straight_project"))
+    def test_create_straight_project(self,args,test_admin_data):
+        method = args["request"]["method"]
+        url = test_admin_data["host"]+args["request"]["url"]
+        raw_data = args["request"]["data"]
+        data = copy.deepcopy(raw_data)
+        if isinstance(raw_data, str):
+            data = json.loads(raw_data)
+        data["deptId"] = str(test_admin_data["deptid"])
+        data["projectNo"] = test_admin_data["project_no"]
+        data["projectName"] = f"直饮水{test_admin_data['project_no']}"
         SendRequest.send_requests(method, url,data, headers={"Authorization": test_admin_data["Token"]})
