@@ -1,0 +1,4 @@
+[32mINFO    [0m jy_pytest:send_request.py:29 请求方式: get
+[32mINFO    [0m jy_pytest:send_request.py:31 请求url: https://admin.test.jyjysw.com/api/member/app/member-water-account-apply/page?current=1&size=10
+[32mINFO    [0m jy_pytest:send_request.py:33 请求数据: None
+[32mINFO    [0m jy_pytest:send_request.py:48 请求成功,响应结果：{'code': 0, 'msg': None, 'data': {'records': [], 'total': 0, 'size': 10, 'current': 1, 'pages': 0}, 'ok': True}

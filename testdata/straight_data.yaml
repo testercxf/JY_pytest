@@ -1,0 +1,23 @@
+# 查询开户列表
+get-member-water-account-apply-page:
+  - name: 查询开户列表
+    request:
+      method: get
+      url: /api/member/app/member-water-account-apply/page?current=1&size=10
+      data: None
+
+# 查询地区
+get-project-area-tree:
+  - name: 查询地区列表
+    request:
+      method: get
+      url: /api/project/app/project/area/tree
+      data: None
+
+# 查询点位
+get-project-building-household:
+  - name: 查询点位列表
+    request:
+      method: get
+      url: /api/project/app/project-building-household/tree?
+      data: None

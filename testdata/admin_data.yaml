@@ -1,0 +1,15 @@
+#项目管理-------------------------
+#社区直饮水项目
+get_straight_project_dept_operations_tree:
+  - name: 查询社区直饮水项目部门列表
+    request:
+      method: get
+      url: /api/admin/dept/operations-tree
+      data: None
+
+get_straight_project_page:
+  - name: 查询社区直饮水项目列表
+    request:
+      method: get
+      url: /api/project/adm/project/page?projectType=community_water&
+      data: None
