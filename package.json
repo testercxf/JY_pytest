@@ -3,6 +3,6 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "test": "python -m pip install --upgrade pip && pip install -r requirements.txt && python run.py"
+    "test": "python3 -m ensurepip --upgrade && python3 -m pip install --upgrade pip && pip3 install -r requirements.txt && python3 run.py"
   }
 }
