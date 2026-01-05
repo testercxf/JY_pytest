@@ -1,7 +1,8 @@
 {
-  "name": "dummy-for-jianmu",
+  "name": "jy-pytest-dummy",
   "version": "1.0.0",
-  "description": "Dummy package.json to bypass nodejs_build npm install",
-  "scripts": {},
-  "private": true
+  "private": true,
+  "scripts": {
+    "test": "python -m pip install --upgrade pip && pip install -r requirements.txt && python run.py"
+  }
 }
