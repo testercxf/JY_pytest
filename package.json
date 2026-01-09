@@ -1,0 +1,8 @@
+{
+  "name": "jy-pytest-dummy",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "test": "apt-get update && apt-get install -y python3-pip && pip3 install --upgrade pip && pip3 install -r requirements.txt && python3 run.py"
+  }
+}
